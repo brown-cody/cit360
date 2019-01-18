@@ -1,21 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mvc;
 
-/**
- *
- * @author pq0192
- */
-public class MVC {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class MVC {
     
+    public static void main(String[] args) throws java.io.IOException {
+         
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            
+            control controlDemo = new control();
+            
+            System.out.println("Enter the first number: ");
+            controlDemo.getNumA(Integer.parseInt(br.readLine()));
+
+            System.out.println("Enter the second number: ");
+            controlDemo.getNumB(Integer.parseInt(br.readLine()));
+
+            System.out.println("Choose an operator: + - * /");
+            controlDemo.op = br.readLine();
+            
+            System.out.println("The answer is: " + controlDemo.runOp());    
+        }
 }
