@@ -1,9 +1,6 @@
 
 package mvc;
 
-
-import mvc.model;
-
 public class control {
 
     model modelDemo = new model();
