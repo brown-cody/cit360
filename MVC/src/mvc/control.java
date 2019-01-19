@@ -6,12 +6,12 @@ public class control {
     model modelDemo = new model();
     String op;
 
-    public void getNumA(double var){
-        modelDemo.numA = var;
+    public void inputA(double var){
+        modelDemo.setA(var);
     }
     
-    public void getNumB(double var){
-        modelDemo.numB = var;
+    public void inputB(double var){
+        modelDemo.setB(var);
     }
     
     public double runOp() {
@@ -19,16 +19,16 @@ public class control {
         
         switch (op) {
             case "+":
-                opValue = modelDemo.numA + modelDemo.numB;
+                opValue = modelDemo.getA() + modelDemo.getB();
                 break;
             case "-":
-                opValue = modelDemo.numA - modelDemo.numB;
+                opValue = modelDemo.getA() - modelDemo.getB();
                 break;
             case "*":
-                opValue = modelDemo.numA * modelDemo.numB;
+                opValue = modelDemo.getA() * modelDemo.getB();
                 break;
             case "/":
-                opValue = modelDemo.numA / modelDemo.numB;
+                opValue = modelDemo.getA() / modelDemo.getB();
                 break;
         }
         
