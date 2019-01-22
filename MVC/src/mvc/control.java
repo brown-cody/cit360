@@ -1,8 +1,11 @@
 
 package mvc;
 
-public class control {
+import java.io.IOException;
 
+public class control {
+    
+    view viewDemo = new view();
     model modelDemo = new model();
     String op;
 
@@ -14,8 +17,15 @@ public class control {
         modelDemo.setB(var);
     }
     
-    public double runOp() {
+    public void setup() {
+        
+    }
+    
+    public double runOp() throws java.io.IOException {
         double opValue = 0;
+        if (op == null) {
+            op = "nv10";
+        }
         
         switch (op) {
             case "+":
@@ -30,9 +40,23 @@ public class control {
             case "/":
                 opValue = modelDemo.getA() / modelDemo.getB();
                 break;
+            default:
+                viewDemo.showDefaultView();
+                break;
         }
         
         return opValue;
+    }
+    
+    public void runAgain(String answer) throws IOException {
+            switch (answer) {
+            case "y":
+                viewDemo.showDefaultView();
+                break;
+            case "n":
+                viewDemo.goodbye();
+                break;
+        }
     }
     
 }
