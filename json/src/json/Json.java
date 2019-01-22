@@ -1,21 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package json;
 
-/**
- *
- * @author pq0192
- */
+import org.json.simple.JSONObject;
+
 public class Json {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        driver newUser = new driver();
+        newUser.dlNumber = 2016081112;
+        newUser.firstName = "Bob";
+        newUser.lastName = "Builder";
+        newUser.eyeColor = "Brown";
+        newUser.hairColor = "Black";
+        newUser.age = 45;
+        newUser.weight = 210.5;
+        
+        address newUserAddress = new address();
+        newUserAddress.address1 = "1547 Tropical Snow St.";
+        newUserAddress.address2 = "Apartment 714";
+        newUserAddress.city = "Las Vegas";
+        newUserAddress.state = "Nevada";
+        newUserAddress.zip = 89127;
+        
+        newUser.userAddress = newUserAddress;
+        JSONObject addressJSON = new JSONObject();
+        addressJSON.put(newUserAddress, userAddress);
+        
+        JSONObject userJSON = new JSONObject();
+        userJSON.put();
     }
     
 }
