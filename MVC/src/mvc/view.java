@@ -30,11 +30,9 @@ public class view {
     //runs after completion of showDefaultView() provides user interaction to run again
     public void showMenuView () throws java.io.IOException {
         control controlDemo = new control();
-        String answer;
         
         System.out.println("Run again? (y/n)");
-        answer = br.readLine();
-        controlDemo.runAgain(answer);
+        controlDemo.runAgain(br.readLine());
         
     }
     
