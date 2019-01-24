@@ -9,6 +9,7 @@ public class view {
     
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
+    //sequential entering of user values, including operator, which is used to determine application flow in control
     public void showDefaultView() throws java.io.IOException {
         control controlDemo = new control();
 
@@ -26,6 +27,7 @@ public class view {
         showMenuView();
     }
     
+    //runs after completion of showDefaultView() provides user interaction to run again
     public void showMenuView () throws java.io.IOException {
         control controlDemo = new control();
         String answer;
@@ -36,6 +38,7 @@ public class view {
         
     }
     
+    //ends execution without additional functions. flow returns back to Main() with nothing left to run.
     public void goodbye() {
         System.out.println("Goodbye!");
     }
