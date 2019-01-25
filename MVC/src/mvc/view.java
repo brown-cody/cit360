@@ -28,11 +28,12 @@ public class view {
 
     }
     
+    //outputs answer to user
     public void showAnswerView(double answer) {
         System.out.println("The answer is: " + answer);
     }
     
-    //runs after completion of showDefaultView() provides user interaction to run again
+    //provides user interaction to run again
     public String showMenuView () throws java.io.IOException {
         
         System.out.println("Run again? (y/n)");
@@ -40,14 +41,17 @@ public class view {
         
     }
     
+    //getter for inputA
     public int getInputA() {
         return inputA;
     }
 
+    //getter for inputB
     public int getInputB() {
         return inputB;
     }
 
+    //getter for op
     public String getOp() {
         return op;
     }

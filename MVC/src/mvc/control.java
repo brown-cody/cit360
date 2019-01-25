@@ -19,7 +19,8 @@ public class control {
         runAgain();
     }
     
-    //run when first number input is entered
+    //retrieve inputs from view and send to model
+    //retrieve operator from view and save locally
     public void sendToModel(){
         //accesses model function to set value
         modelDemo.setA(viewDemo.getInputA());
@@ -28,11 +29,10 @@ public class control {
 
     }
     
-    //runs from Main() and whenever operator is set
+    //chooses math operation based on operator chosen
+    //access data from model getters
     public void runOp() throws java.io.IOException {
                 
-        //chooses which math operation to perform based on operator chosen in View
-        //cases access model functions to retrieve values
         switch (op) {
             case "+":
                 answer = modelDemo.getA() + modelDemo.getB();
@@ -46,16 +46,15 @@ public class control {
             case "/":
                 answer = modelDemo.getA() / modelDemo.getB();
                 break;
-            //execution path if no valid operator is chosen, or if first run
         }
         
     }
     
-    //run after execution complete
+    //prompt for another run
     public void runAgain() throws IOException {
             repeat = viewDemo.showMenuView();
             switch (repeat) {
-            //option to re-run showDefaultView() to restart application flow
+            //option to re-start application flow
             case "y":                                        
                 setup();
                 break;
