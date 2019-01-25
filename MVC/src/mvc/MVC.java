@@ -12,7 +12,7 @@ public class MVC {
             
             control controlDemo = new control();
 
-            controlDemo.runOp(); //pass execution to control
+            controlDemo.setup(); //pass execution to control
             
         }
 }
