@@ -15,7 +15,6 @@ public class Collections {
         
         menu();
 
-        //doSet(); //sets
     }
     
     public static void menu() throws IOException {
