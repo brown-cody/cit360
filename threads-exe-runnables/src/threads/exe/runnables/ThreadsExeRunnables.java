@@ -49,7 +49,7 @@ public class ThreadsExeRunnables {
         System.out.println("\nIn this demo, you'll see the lyrics of several Beatles songs, but they'll all be mixed up. ");
         System.out.println("This demonstrates that the threads executing the console output for each song "
                         + "are truly operating simultanously.\n");
-        System.out.println("Song A is threaded using by implementing the RUNNABLE interface. ");
+        System.out.println("Song A is threaded by implementing the RUNNABLE interface. ");
         System.out.println("Song B is threaded by extending the THREAD class. ");
         System.out.println("Song C uses an EXECUTION POOL of 6 runnable threads, each of which prints one line of the song. ");
         System.out.println("\nSleep has been added to the execution to simulate the time needed to process large amounts of data. ");
@@ -99,7 +99,7 @@ public class ThreadsExeRunnables {
         avd.isAtomic = false;
         
         System.out.println("\nNow, if we use a regular variable instead of an Atomic Variable,");
-        System.out.println("The threads have difficulty accessing it simultaneously");
+        System.out.println("The threads have difficulty accessing it simultaneously, so it doesn't get incremented as it should.");
         System.out.println("\nPress ENTER to continue...");
         
         choice = br.readLine();
