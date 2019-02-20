@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class ThreadsExeRunnables {
 
     //LineCounter counter = new LineCounter();
-    static int counterInt;
+    //static int counterInt;
     
     public static void main(String[] args) throws InterruptedException, IOException {
         menu();
@@ -91,10 +91,15 @@ public class ThreadsExeRunnables {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String choice = br.readLine();
         
-        AtomicVariableDemo avd = new AtomicVariableDemo();
-        counterInt = avd.runAtomicVariableDemo();
 
-        System.out.println("\nAtomic Variable: " + counterInt);
+        
+        AtomicVariableDemo avd = new AtomicVariableDemo();
+        
+        System.out.println("\nAtomic Variable initial value:" + avd.counter.getValue());
+        System.out.println("Incrementing now...");
+        avd.runAtomicVariableDemo();
+
+        System.out.println("\nAtomic Variable: " + avd.counter.getValue());
 
         avd.isAtomic = false;
         
@@ -104,9 +109,11 @@ public class ThreadsExeRunnables {
         
         choice = br.readLine();
         
-        counterInt = avd.runAtomicVariableDemo();
+        System.out.println("\nBasic Variable initial value:" + avd.intCounter.getValue());
+        System.out.println("Incrementing now...");
+        avd.runAtomicVariableDemo();
 
-        System.out.println("\nBasic Variable: " + counterInt);
+        System.out.println("\nBasic Variable: " + avd.intCounter.getValue());
 
         avd.isAtomic = true;
         menu();

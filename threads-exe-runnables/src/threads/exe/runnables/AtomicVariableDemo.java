@@ -12,7 +12,7 @@ public class AtomicVariableDemo {
     AtomicCounter counter = new AtomicCounter();
     BasicCounter intCounter = new BasicCounter();
     
-    public int runAtomicVariableDemo() throws InterruptedException, IOException {
+    public void runAtomicVariableDemo() throws InterruptedException, IOException {
 
        
         ExecutorService executor = Executors.newFixedThreadPool(4);
@@ -89,12 +89,7 @@ public class AtomicVariableDemo {
             executor.shutdownNow();
             Thread.currentThread().interrupt();
         }
-        
-        if (isAtomic == true) {
-                    return counter.getValue();
-                } else {
-                    return intCounter.getValue();
-                }
+
 
 
     }
