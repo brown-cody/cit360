@@ -8,7 +8,8 @@ import java.io.InputStreamReader;
 
 public class ThreadsExeRunnables {
 
-    LineCounter counter = new LineCounter();
+    //LineCounter counter = new LineCounter();
+    static int counterInt;
     
     public static void main(String[] args) throws InterruptedException, IOException {
         menu();
@@ -22,6 +23,7 @@ public class ThreadsExeRunnables {
         System.out.println("\nWhich demo would you like to see?");
         System.out.println("t - Threading Demo");
         System.out.println("n - Non-Threading Demo");
+        System.out.println("a - Atomic Variable Demo");
         System.out.println("q - Quit");
         
         String choice = br.readLine();
@@ -32,6 +34,9 @@ public class ThreadsExeRunnables {
                 break;
             case "n":
                 showNonThreadsDemo();
+                break;
+            case "a":
+                showAtomicVariableDemo();
                 break;
             case "q":
                 break;
@@ -77,6 +82,34 @@ public class ThreadsExeRunnables {
         menu();
     }
     
-    
+    public static void showAtomicVariableDemo() throws InterruptedException, IOException {
+        
+        System.out.println("\nIn this demo, an Atomic Variable is incremented to 10,000 by 4 different threads.");
+        System.out.println("Although they each reach 2,500 at different times, the final total is always correct.");
+        System.out.println("\nPress ENTER to continue...");
+        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String choice = br.readLine();
+        
+        AtomicVariableDemo avd = new AtomicVariableDemo();
+        counterInt = avd.runAtomicVariableDemo();
+
+        System.out.println("\nAtomic Variable: " + counterInt);
+
+        avd.isAtomic = false;
+        
+        System.out.println("\nNow, if we use a regular variable instead of an Atomic Variable,");
+        System.out.println("The threads have difficulty accessing it simultaneously");
+        System.out.println("\nPress ENTER to continue...");
+        
+        choice = br.readLine();
+        
+        counterInt = avd.runAtomicVariableDemo();
+
+        System.out.println("\nBasic Variable: " + counterInt);
+
+        avd.isAtomic = true;
+        menu();
+    }
     
 }

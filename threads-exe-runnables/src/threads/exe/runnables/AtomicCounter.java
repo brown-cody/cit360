@@ -3,7 +3,7 @@ package threads.exe.runnables;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class LineCounter {
+public class AtomicCounter {
     
     private AtomicInteger counter = new AtomicInteger(0);
     
