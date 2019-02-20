@@ -70,6 +70,7 @@ public class ThreadsExeRunnables {
         
         System.out.println("\nIn this demo, there is only one thread executing the console output for all of the songs.");
         System.out.println("Execution doesn't move on to the next song until the first one is finished, etc.");
+        System.out.println("It takes significantly longer to output them in this way because it can only do one song at a time.");
         System.out.println("\nPress ENTER to continue...");
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
