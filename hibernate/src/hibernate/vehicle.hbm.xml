@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="hibernate.Vehicle" table="VEHICLE">
+        <id column="ID" name="id" type="int" />
+        <property column="MAKE" name="make" type="string" />
+        <property column="MODEL" name="model" type="string" />
+        <property column="YEAR" name="year" type="int" />
+        <property column="COLOR" name="color" type="string" />
+    </class>
+</hibernate-mapping>
