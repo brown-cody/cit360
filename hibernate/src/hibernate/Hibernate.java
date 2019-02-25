@@ -39,22 +39,18 @@ public class Hibernate {
                 insertVehicle();
                 break;
             case "l":
-                //listAllVehicles();
                 userQuery = "No userQuery";
                 listVehiclesByAttribute("all", userQuery);
                 break;
             case "y":
-                //listVehiclesByYear();
                 userQuery = "\nEnter year (YYYY): ";
                 listVehiclesByAttribute("year", userQuery);
                 break;
             case "m":
-                //listVehiclesByMake();
                 userQuery = "\nEnter make : ";
                 listVehiclesByAttribute("make", userQuery);
                 break;
             case "c":
-                //listVehiclesByColor();
                 userQuery = "\nEnter color: ";
                 listVehiclesByAttribute("color", userQuery);
                 break;                
@@ -122,7 +118,6 @@ public class Hibernate {
         }
         
         String sqlQuery = "FROM Vehicle " + querySup + "ORDER BY year ASC";
-        //System.out.println(sqlQuery);
         
         System.out.println("\n");
         int i = 0;
