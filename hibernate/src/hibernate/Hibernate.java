@@ -13,8 +13,7 @@ import org.hibernate.cfg.Configuration;
 
 
 public class Hibernate {
-
-
+    
     public static void main(String[] args) throws IOException {
                 java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
         menu();
@@ -23,6 +22,7 @@ public class Hibernate {
     
     public static void menu() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String userQuery = "No query set.";
         
         System.out.println("\nWhich would you like to perform?");
         System.out.println("a - Add Vehicle");
@@ -39,16 +39,24 @@ public class Hibernate {
                 insertVehicle();
                 break;
             case "l":
-                listAllVehicles();
+                //listAllVehicles();
+                userQuery = "No userQuery";
+                listVehiclesByAttribute("all", userQuery);
                 break;
             case "y":
-                listVehiclesByYear();
+                //listVehiclesByYear();
+                userQuery = "\nEnter year (YYYY): ";
+                listVehiclesByAttribute("year", userQuery);
                 break;
             case "m":
-                listVehiclesByMake();
+                //listVehiclesByMake();
+                userQuery = "\nEnter make : ";
+                listVehiclesByAttribute("make", userQuery);
                 break;
             case "c":
-                listVehiclesByColor();
+                //listVehiclesByColor();
+                userQuery = "\nEnter color: ";
+                listVehiclesByAttribute("color", userQuery);
                 break;                
             case "q":
                 break;
@@ -90,37 +98,10 @@ public class Hibernate {
         session.close();
         factory.close();
         
-        listAllVehicles();
+        listVehiclesByAttribute("all", null);
     }
     
-    public static void listAllVehicles() throws IOException {
-        
-
-        Configuration cfg = new Configuration();
-        cfg.configure("/hibernate/hibernateconfig.xml");
-        
-        SessionFactory factory = cfg.buildSessionFactory();
-        Session session = factory.openSession();
-        
-        Transaction tx = session.beginTransaction();
-        
-        System.out.println("\n");
-        
-        List vehicles = session.createQuery("FROM Vehicle").list();
-        for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
-            Vehicle vehicle = (Vehicle) iterator.next();
-            System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
-
-        }
-        
-        tx.commit();
-        session.close();
-        factory.close();
-        
-        menu();
-    }
-    
-    public static void listVehiclesByYear() throws IOException {
+    public static void listVehiclesByAttribute(String attribute, String userQuery) throws IOException {
         
 
         Configuration cfg = new Configuration();
@@ -133,90 +114,23 @@ public class Hibernate {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        System.out.println("\nEnter year (YYYY):");
-        int year = Integer.parseInt(br.readLine());
+        String querySup = "";
+        if (attribute != "all") {
+            System.out.println(userQuery);
+            String userEntry = br.readLine();
+            querySup = "WHERE " + attribute + " = '" + userEntry + "' ";
+        }
+        
+        String sqlQuery = "FROM Vehicle " + querySup + "ORDER BY year ASC";
+        //System.out.println(sqlQuery);
         
         System.out.println("\n");
         int i = 0;
-        List vehicles = session.createQuery("FROM Vehicle WHERE year = " + year).list();
+        List vehicles = session.createQuery(sqlQuery).list();
         for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
             Vehicle vehicle = (Vehicle) iterator.next();
             i++;
             System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
-        }
-        
-        if (i == 0) {
-            System.out.println("No vehicles found.");
-        }
-        
-        tx.commit();
-        session.close();
-        factory.close();
-        
-        menu();
-    }
-    
-    public static void listVehiclesByColor() throws IOException {
-        
-
-        Configuration cfg = new Configuration();
-        cfg.configure("/hibernate/hibernateconfig.xml");
-        
-        SessionFactory factory = cfg.buildSessionFactory();
-        Session session = factory.openSession();
-        
-        Transaction tx = session.beginTransaction();
-        
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        System.out.println("\nEnter Color:");
-        String color = br.readLine();
-        
-        System.out.println("\n");
-        int i = 0;
-        List vehicles = session.createQuery("FROM Vehicle WHERE color = '" + color + "'").list();
-        for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
-            Vehicle vehicle = (Vehicle) iterator.next();
-            i++;
-            System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
-
-        }
-        
-        if (i == 0) {
-            System.out.println("No vehicles found.");
-        }
-        
-        tx.commit();
-        session.close();
-        factory.close();
-        
-        menu();
-    }
-    
-        public static void listVehiclesByMake() throws IOException {
-        
-
-        Configuration cfg = new Configuration();
-        cfg.configure("/hibernate/hibernateconfig.xml");
-        
-        SessionFactory factory = cfg.buildSessionFactory();
-        Session session = factory.openSession();
-        
-        Transaction tx = session.beginTransaction();
-        
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        System.out.println("\nEnter Make:");
-        String make = br.readLine();
-        
-        System.out.println("\n");
-        int i = 0;
-        List vehicles = session.createQuery("FROM Vehicle WHERE make = '" + make + "'").list();
-        for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
-            Vehicle vehicle = (Vehicle) iterator.next();
-            i++;
-            System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
-
         }
         
         if (i == 0) {
