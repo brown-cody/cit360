@@ -6,7 +6,6 @@
 ***assertNotNull
 ***assertNotSame
 ***assertNull
-assertSame
 ***assertThat
 ***assertTrue
 */
