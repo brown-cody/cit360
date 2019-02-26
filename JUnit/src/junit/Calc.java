@@ -3,8 +3,6 @@ package junit;
 
 public class Calc {
     
-    double paramA;
-    double paramB;
     
     double add(double inputA, double inputB) {
         double result = inputA + inputB;
