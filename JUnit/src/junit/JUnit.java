@@ -29,6 +29,7 @@ public class JUnit {
         System.out.println("c - Find Circumference");
         System.out.println("p - Find Area of a Circle");
         System.out.println("n - Is it a Prime Number");
+        System.out.println("j - Find a Secret Message");
         System.out.println("q - Quit");
         
         String choice = br.readLine();
@@ -60,6 +61,9 @@ public class JUnit {
                 break;
             case "n":
                 menuOneInput("see if its a prime", "number");
+                break;
+            case "j":
+                menuOneInput("see if you can find the secret message", "number");
                 break;
             case "q":
                 break;
@@ -104,6 +108,7 @@ public class JUnit {
         System.out.println("\nLet's " + operation + "!");
         System.out.println("Enter the " + type + ": ");
         double input = Double.parseDouble(br.readLine());
+        int intInput = 0;
         String outputMessage = null;
         
         switch (operation) {
@@ -117,8 +122,15 @@ public class JUnit {
                 outputMessage = calc.sqrt(input) + "";
                 break;
             case "see if its a prime":
-                int intInput = (int) Math.round(input);
+                intInput = (int) Math.round(input);
                 outputMessage = calc.isPrime(intInput) + "";
+                break;
+            case "see if you can find the secret message":
+                intInput = (int) Math.round(input);
+                outputMessage = calc.isMathHard(intInput);
+                if (outputMessage == null) {
+                    outputMessage = "Sorry, you didn't find the secret message.";
+                }
                 break;
         }
 

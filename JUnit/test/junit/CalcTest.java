@@ -86,7 +86,7 @@ public class CalcTest {
      */
     @Test
     public void testMultiply() {
-        System.out.println("multiply");
+        System.out.println("assertEquals      - multiply");
         double inputA = 12;
         double inputB = 1;
         Calc instance = new Calc();
@@ -110,7 +110,7 @@ public class CalcTest {
      */
     @Test
     public void testDivide() {
-        System.out.println("divide");
+        System.out.println("assertEquals      - divide");
         double inputA = 60;
         double inputB = 5;
         Calc instance = new Calc();
@@ -135,7 +135,7 @@ public class CalcTest {
      */
     @Test
     public void testSqrt() {
-        System.out.println("sqrt");
+        System.out.println("assertEquals      - sqrt");
         double input = 64;
         Calc instance = new Calc();
         double expResult = 8;
@@ -148,7 +148,7 @@ public class CalcTest {
      */
     @Test
     public void testPwr() {
-        System.out.println("pwr");
+        System.out.println("assertEquals      - pwr");
         double inputA = 2;
         double inputB = 8;
         Calc instance = new Calc();
@@ -156,6 +156,7 @@ public class CalcTest {
         double result = instance.pwr(inputA, inputB);
         assertEquals(expResult, result, 0.0);
     }
+
 
     /**
      * Test of circumference method, of class Calc.
@@ -175,7 +176,7 @@ public class CalcTest {
      */
     @Test
     public void testAreaOfCircle() {
-        System.out.println("areaOfCircle");
+        System.out.println("assertEquals      - areaOfCircle");
         double radius = 5;
         Calc instance = new Calc();
         double expResult = 78.54;

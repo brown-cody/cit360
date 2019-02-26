@@ -3,6 +3,9 @@ package junit;
 
 public class Calc {
     
+    double paramA;
+    double paramB;
+    
     double add(double inputA, double inputB) {
         double result = inputA + inputB;
         return result;
@@ -28,9 +31,10 @@ public class Calc {
         return result;
     }
     
-    double pwr(double inputA, double inputB) {
+    int pwr(double inputA, double inputB) {
         double result = Math.pow(inputA, inputB);
-        return result;
+        int intResult = (int) Math.floor(result);
+        return intResult;
     }
     
     double circumference(double radius) {
