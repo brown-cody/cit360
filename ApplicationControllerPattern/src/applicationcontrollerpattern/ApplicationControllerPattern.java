@@ -1,34 +1,25 @@
 
 package applicationcontrollerpattern;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Scanner;
 
 
 public class ApplicationControllerPattern {
 
+    static ApplicationController controller = new ApplicationController();
     
     public static void main(String[] args) {
-        menu();
-    }
-    
-    public static void menu() {
-
-        /*System.out.println("\nWhich would you like to do?");
-        System.out.println("m - Let's do a Mad Lib!");
-        System.out.println("h - Read a Haiku");
-        System.out.println("q - Quit");*/
-        
-        userInput("menu");
-        }
-        
-    public static void userInput(String command) {
-        ApplicationController controller = new ApplicationController();
         controller.mapCommand("menu", new MenuHandler());
         controller.mapCommand("m", new MadLibHandler());
         controller.mapCommand("h", new HaikuHandler());
         controller.mapCommand("q", new ExitHandler());
-
+        
+        userInput("menu");
+    }
+        
+    public static void userInput(String command) {
+        
         controller.handleRequest(command,null);
         
         Scanner scanner = new Scanner(System.in);        
@@ -39,7 +30,7 @@ public class ApplicationControllerPattern {
         
         controller.handleRequest(command,null);
                
-        menu();
+        userInput("menu");
     }    
     
         
