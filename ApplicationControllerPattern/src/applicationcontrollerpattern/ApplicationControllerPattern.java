@@ -15,22 +15,24 @@ public class ApplicationControllerPattern {
         controller.mapCommand("h", new HaikuHandler());
         controller.mapCommand("q", new ExitHandler());
         
-        userInput("menu");
+        userInput();
     }
         
-    public static void userInput(String command) {
+    public static void userInput() {
         
-        controller.handleRequest(command,null);
+        //controller.handleRequest(command,null);
+        controller.handleRequest("menu");
         
         Scanner scanner = new Scanner(System.in);        
-        command = scanner.nextLine();
+        String command = scanner.nextLine();
         
         //HashMap<String,Object> inputMap = new HashMap<>();
         //inputMap.put(command,inputMap);
         
-        controller.handleRequest(command,null);
+        //controller.handleRequest(command,null);
+        controller.handleRequest(command);
                
-        userInput("menu");
+        userInput();
     }    
     
         

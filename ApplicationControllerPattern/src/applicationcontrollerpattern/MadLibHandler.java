@@ -1,14 +1,14 @@
 
 package applicationcontrollerpattern;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Scanner;
 
 public class MadLibHandler implements Handler {
     
     @Override
-    public void handleIt(HashMap<String, Object> data) {
-        
+    //public void handleIt(HashMap<String, Object> data) {
+    public void handleIt() {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("\nEnter a name: ");

@@ -1,12 +1,13 @@
 
 package applicationcontrollerpattern;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class HaikuHandler implements Handler {
     
     @Override
-    public void handleIt(HashMap<String, Object> data) {
+    //public void handleIt(HashMap<String, Object> data) {
+    public void handleIt() {
         
         System.out.println("\nJava can be hard");
         System.out.println("Or it can be quite easy");

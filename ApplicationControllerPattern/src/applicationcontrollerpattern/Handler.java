@@ -1,8 +1,9 @@
 
 package applicationcontrollerpattern;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public interface Handler {
-    public void handleIt(HashMap<String, Object> data);
+    //public void handleIt(HashMap<String, Object> data);
+    public void handleIt();
 }
