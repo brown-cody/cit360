@@ -45,12 +45,11 @@ public class ServiceLog extends HttpServlet {
 		
         action = request.getParameter("action");
         controller.handleRequest(action, response);
-
     }
 
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        return "RAN getServletInfo() method of ServiceLog.java";
+    }
 
 }
