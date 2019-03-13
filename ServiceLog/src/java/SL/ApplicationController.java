@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 public class ApplicationController {
     private HashMap<String,Handler> handlerMap = new HashMap();
 
-    public void handleRequest(String command, HttpServletResponse response) throws IOException, ServletException{
+    public void handleRequest(String command, HttpServletResponse response, String data) throws IOException, ServletException{
         Handler aCommandHandler = handlerMap.get(command);
         if (aCommandHandler != null){
-            aCommandHandler.handleIt(response);
+            aCommandHandler.handleIt(response, data);
         }
     }
 

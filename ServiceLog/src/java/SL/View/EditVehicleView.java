@@ -11,25 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 public class EditVehicleView {
     public void showIt(HttpServletResponse response, List vehicles) throws IOException {
         PrintWriter pw = response.getWriter();
-        pw.println("<!DOCTYPE html>"
-                        + "<html>"
-                        + "<head>"
-                        + "<meta charset='ISO-8859-1'>"
-                        + "<title>Edit Vehicles</title>"
-                        + "<link rel='stylesheet' type='text/css' href='/ServiceLog/style.css'>"
-                        + "</head>"
-                        + "<body>"
-                        + "<h1>Edit Vehicles</h1>"
-                        + "<form method='post' action='ServiceLog'>"
-                        + "<input type='hidden' name='action' value='av'>"
-                        + "<button type='submit'>Add Vehicle</button>"
-                        + "</form>");
+        HTMLLibrary hl = new HTMLLibrary();
+        
+        pw.println(hl.header);
+        
+        pw.println("<h1>Edit Vehicles</h1>");
+        
+        pw.println("<form method='post' action='ServiceLog'>"
+                + "<input type='hidden' name='action' value='AddVehicle'>"
+                + "<button type='submit'>Add Vehicle</button>"
+                + "</form>");
         int i = 0;
         for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
             SL.Model.Vehicle vehicle = (SL.Model.Vehicle) iterator.next();
             i++;
             pw.println("<button>");
-            pw.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
+            pw.println(vehicle.getId() + " " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
             pw.println("</button>");
         }
         
@@ -37,7 +34,6 @@ public class EditVehicleView {
             pw.println("No vehicles found.");
         }
         
-        
-        pw.println("</body></html>");
+        pw.println(hl.footer);
     }
 }

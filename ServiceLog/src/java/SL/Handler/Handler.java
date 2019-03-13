@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public interface Handler {
-    public void handleIt(HttpServletResponse response)  throws ServletException, IOException;
+    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException;
     //public void handleIt(HashMap<String, Object> data);
     //public void handleIt();
 }

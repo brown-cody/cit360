@@ -13,7 +13,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    
+        
     @Column(name = "make")
     private String make;
     

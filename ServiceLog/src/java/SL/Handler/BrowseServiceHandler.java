@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BrowseServiceHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response) {
+    public void handleIt(HttpServletResponse response, String data) {
     //public void handleIt(HashMap<String, Object> data) {
     //public void handleIt() {
         //Scanner scanner = new Scanner(System.in);

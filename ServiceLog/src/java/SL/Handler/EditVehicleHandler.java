@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 public class EditVehicleHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response)  throws ServletException, IOException {
+    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
         
-        DBConnect model = new DBConnect();
-        
-        List vehicles = model.getVehicles();
-        
+        DBConnect dbModel = new DBConnect();
         EditVehicleView view = new EditVehicleView();
+        
+        List vehicles = dbModel.getVehicles();
         view.showIt(response, vehicles);
         
     }

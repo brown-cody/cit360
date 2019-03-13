@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 import javax.servlet.http.HttpServletResponse;
 
-public class SelectVehicleHandler implements Handler {
+public class DeleteVehicleHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response) {
+    public void handleIt(HttpServletResponse response, String data) {
     //public void handleIt(HashMap<String, Object> data) {
     //public void handleIt() {
         //Scanner scanner = new Scanner(System.in);

@@ -1,14 +1,7 @@
 package SL;
 
-import SL.Handler.ExitHandler;
-import SL.Handler.AddServiceHandler;
-import SL.Handler.BrowseServiceHandler;
-import SL.Handler.AddVehicleHandler;
-import SL.Handler.EditVehicleHandler;
-import SL.Handler.SelectVehicleHandler;
-import SL.Handler.SearchServiceHandler;
+import SL.Handler.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,13 +17,16 @@ public class ServiceLog extends HttpServlet {
         
     @Override
     public void init() {
-        controller.mapCommand("av", new AddVehicleHandler());
-        controller.mapCommand("ev", new EditVehicleHandler());
-        controller.mapCommand("sv", new SelectVehicleHandler());
-        controller.mapCommand("as", new AddServiceHandler());
-        controller.mapCommand("bs", new BrowseServiceHandler());
-        controller.mapCommand("ss", new SearchServiceHandler());
-        controller.mapCommand("q", new ExitHandler());
+        controller.mapCommand("AddVehicle", new AddVehicleHandler());
+        controller.mapCommand("DoAddVehicle", new DoAddVehicleHandler());
+        controller.mapCommand("EditVehicle", new EditVehicleHandler());
+        controller.mapCommand("DeleteVehicle", new DeleteVehicleHandler());
+        
+        controller.mapCommand("AddService", new AddServiceHandler());
+        controller.mapCommand("BrowseService", new BrowseServiceHandler());
+        controller.mapCommand("SearchService", new SearchServiceHandler());
+        
+        controller.mapCommand("quit", new ExitHandler());
         
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
     }
@@ -44,7 +40,11 @@ public class ServiceLog extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
 		
         action = request.getParameter("action");
-        controller.handleRequest(action, response);
+        String data = request.getParameter("JSON");
+        
+        controller.handleRequest(action, response, data);
+        
+
     }
 
     @Override
