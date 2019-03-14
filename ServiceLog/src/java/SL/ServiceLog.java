@@ -19,8 +19,11 @@ public class ServiceLog extends HttpServlet {
     public void init() {
         controller.mapCommand("AddVehicle", new AddVehicleHandler());
         controller.mapCommand("DoAddVehicle", new DoAddVehicleHandler());
+        controller.mapCommand("EditVehicles", new EditVehiclesHandler());
         controller.mapCommand("EditVehicle", new EditVehicleHandler());
+        controller.mapCommand("DoEditVehicle", new DoEditVehicleHandler());
         controller.mapCommand("DeleteVehicle", new DeleteVehicleHandler());
+        controller.mapCommand("DoDeleteVehicle", new DoDeleteVehicleHandler());
         
         controller.mapCommand("AddService", new AddServiceHandler());
         controller.mapCommand("BrowseService", new BrowseServiceHandler());
@@ -40,7 +43,7 @@ public class ServiceLog extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
 		
         action = request.getParameter("action");
-        String data = request.getParameter("JSON");
+        String data = request.getParameter("data");
         
         controller.handleRequest(action, response, data);
         

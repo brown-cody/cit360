@@ -15,7 +15,8 @@ public class AddVehicleView {
         pw.println(hl.createVehicleJSON("DoAddVehicle"));
         
         pw.println("<h1>Add Vehicle</h1>");
-        pw.println("<input type='text' id='year' name='year' placeholder='Year'>"
+        pw.println("<input type='hidden' id='id' name ='id' value='NOID'>"
+                + "<input type='text' id='year' name='year' placeholder='Year'>"
                 + "<input type='text' id='make' name='make' placeholder='Make'>"
                 + "<input type='text' id='model' name='model' placeholder='Model'>"
                 + "<input type='text' id='color' name='color' placeholder='Color'>"

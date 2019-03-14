@@ -1,20 +1,22 @@
 
 package SL.Handler;
 
-import java.util.HashMap;
-import java.util.Scanner;
+import SL.Model.DBConnect;
+import SL.View.*;
+import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 public class DeleteVehicleHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response, String data) {
-    //public void handleIt(HashMap<String, Object> data) {
-    //public void handleIt() {
-        //Scanner scanner = new Scanner(System.in);
-        //String name = scanner.nextLine();
+    public void handleIt(HttpServletResponse response, String data) throws IOException {
         
-        System.out.println("AddVehicleHandler RUN!!!");
+        DBConnect dbModel = new DBConnect();
+        DeleteVehicleView view = new DeleteVehicleView();
+        
+        List vehicle = dbModel.getVehicleById(data);
+        view.showIt(response, vehicle);
         
     }
 

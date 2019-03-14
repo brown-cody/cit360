@@ -2,7 +2,7 @@
 package SL.Handler;
 
 import SL.Model.DBConnect;
-import SL.View.EditVehiclesView;
+import SL.View.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,10 +13,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class DoAddVehicleHandler implements Handler {
+public class DoEditVehicleHandler implements Handler {
     
     @Override
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
+
         DBConnect dbModel = new DBConnect();
         EditVehiclesView view = new EditVehiclesView();
         JSONParser parser = new JSONParser();
@@ -25,9 +26,10 @@ public class DoAddVehicleHandler implements Handler {
         try {
             json = (JSONObject) parser.parse(data);
         } catch (ParseException ex) {
-            Logger.getLogger(DoAddVehicleHandler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DoEditVehicleHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        String id = (String) json.get("id");
         String year = (String) json.get("year");
         String make = (String) json.get("make");
         String model = (String) json.get("model");
@@ -36,7 +38,7 @@ public class DoAddVehicleHandler implements Handler {
         String vin = (String) json.get("vin");
         String regdate = (String) json.get("regdate");
         
-        dbModel.addVehicle(year, make, model, color, license, vin, regdate);
+        dbModel.editVehicle(id, year, make, model, color, license, vin, regdate);
         List vehicles = dbModel.getVehicles();
         view.showIt(response, vehicles);
         
