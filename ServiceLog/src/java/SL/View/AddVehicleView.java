@@ -11,7 +11,7 @@ public class AddVehicleView {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
         
-        pw.println(hl.header);
+        pw.println(hl.header("Add Vehicle"));
         pw.println(hl.createVehicleJSON("DoAddVehicle"));
         
         pw.println("<h1>Add Vehicle</h1>");
@@ -26,7 +26,7 @@ public class AddVehicleView {
                 + "<button onclick='submit()'>Submit</button>");
         
         pw.println("<form method='post' action='ServiceLog'>"
-                + "<input type='hidden' name='action' value='EditVehicle'>"
+                + "<input type='hidden' name='action' value='EditVehicles'>"
                 + "<button type='submit'>Cancel</button>"
                 + "</form>");
         

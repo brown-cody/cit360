@@ -18,7 +18,7 @@ public class EditVehicleView {
         Iterator iterator = vehicle.iterator();
         Vehicle v = (Vehicle) iterator.next();
         
-        pw.println(hl.header);
+        pw.println(hl.header("Edit Vehicle"));
         pw.println(hl.createVehicleJSON("DoEditVehicle"));
         
         pw.println("<h1>Edit Vehicle</h1>");

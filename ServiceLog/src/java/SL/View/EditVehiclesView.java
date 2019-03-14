@@ -14,7 +14,7 @@ public class EditVehiclesView {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
         
-        pw.println(hl.header);
+        pw.println(hl.header("Edit Vehicles"));
         
         pw.println("<h1>Edit Vehicles</h1>");
         

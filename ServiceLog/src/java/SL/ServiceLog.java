@@ -8,15 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 @WebServlet("/ServiceLog")
 public class ServiceLog extends HttpServlet {
 
     String action;
     ApplicationController controller = new ApplicationController();
-        
+    public static SessionFactory factory;
+    
     @Override
     public void init() {
+        //Setup ACP HashMap for Vehicle Actions
         controller.mapCommand("AddVehicle", new AddVehicleHandler());
         controller.mapCommand("DoAddVehicle", new DoAddVehicleHandler());
         controller.mapCommand("EditVehicles", new EditVehiclesHandler());
@@ -25,12 +29,17 @@ public class ServiceLog extends HttpServlet {
         controller.mapCommand("DeleteVehicle", new DeleteVehicleHandler());
         controller.mapCommand("DoDeleteVehicle", new DoDeleteVehicleHandler());
         
+        //Setup ACP HashMap for Service Actions
         controller.mapCommand("AddService", new AddServiceHandler());
         controller.mapCommand("BrowseService", new BrowseServiceHandler());
         controller.mapCommand("SearchService", new SearchServiceHandler());
         
         controller.mapCommand("quit", new ExitHandler());
         
+        //Setup Hibernate
+        Configuration cfg = new Configuration();
+        cfg.configure("SL/Model/hibernate.cfg.xml");
+        factory = cfg.buildSessionFactory();
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
     }
     
@@ -48,6 +57,11 @@ public class ServiceLog extends HttpServlet {
         controller.handleRequest(action, response, data);
         
 
+    }
+    
+    @Override
+    public void destroy() {
+        factory.close();
     }
 
     @Override

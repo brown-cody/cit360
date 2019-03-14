@@ -18,8 +18,7 @@ public class DeleteVehicleView {
         Iterator iterator = vehicle.iterator();
         Vehicle v = (Vehicle) iterator.next();
         
-        pw.println(hl.header);
-        pw.println(hl.createVehicleJSON("DoEditVehicle"));
+        pw.println(hl.header("Delete Vehicle"));
         
         pw.println("<h1>Delete Vehicle</h1>");
         pw.println("Are you sure you want to delete this vehicle?");
