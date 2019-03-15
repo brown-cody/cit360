@@ -51,4 +51,38 @@ public class HTMLLibrary {
         + "}"
         + "</script>";
     }
+    
+    public String createServiceJSON(String action) {
+        return "<script>"
+        + "function submit() {"
+        + "var service = {"
+        + "id: document.getElementById('id').value, "
+        + "vehicle: document.getElementById('vehicle').value, "
+        + "date: document.getElementById('date').value, "
+        + "mileage: document.getElementById('mileage').value, "
+        + "vendor: document.getElementById('vendor').value, "
+        + "category: document.getElementById('category').value, "
+        + "notes: document.getElementById('notes').value, "
+        + "price: document.getElementById('price').value"
+        + "};"
+        + "var serviceJSON = JSON.stringify(service);"
+        + "var form = document.createElement('form');"
+        + "form.setAttribute('method', 'post');"
+        + "form.setAttribute('action', 'ServiceLog');"
+        + "var actionField = document.createElement('input');"
+        + "actionField.setAttribute('type', 'hidden');"
+        + "actionField.setAttribute('name', 'action');"
+        + "actionField.setAttribute('value', '" + action + "');"
+        + "var JSONField = document.createElement('input');"
+        + "JSONField.setAttribute('type', 'hidden');"
+        + "JSONField.setAttribute('name', 'data');"
+        + "JSONField.setAttribute('value', serviceJSON);"
+        + "form.appendChild(actionField);"
+        + "form.appendChild(JSONField);"
+        + "document.body.appendChild(form);"
+        + "console.log('Service JSON:   ' + serviceJSON);"
+        + "form.submit();"
+        + "}"
+        + "</script>";
+    }
 }

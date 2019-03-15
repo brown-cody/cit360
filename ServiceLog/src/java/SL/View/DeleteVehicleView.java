@@ -1,7 +1,7 @@
 
 package SL.View;
 
-import SL.Model.Vehicle;
+import SL.Vehicle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

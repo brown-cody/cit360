@@ -2,23 +2,25 @@
 package SL.Handler;
 
 import SL.Model.DBConnect;
-import SL.View.AddServiceView;
-import SL.View.EditVehiclesView;
+import SL.View.*;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
-public class AddServiceHandler implements Handler {
+public class DoDeleteServiceHandler implements Handler {
     
     @Override
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
-                
-        AddServiceView addView = new AddServiceView();
+
         DBConnect dbModel = new DBConnect();
+        BrowseServiceView view = new BrowseServiceView();
         
-        List vehicles = dbModel.getVehicles();
-        addView.showIt(response, vehicles);
+        dbModel.deleteService(data);
+        
+        List services = dbModel.getServices();
+        view.showIt(response, services);
+        
     }
 
 }

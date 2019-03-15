@@ -17,7 +17,8 @@ public class EditServiceHandler implements Handler {
         EditServiceView view = new EditServiceView();
         
         List service = dbModel.getServiceById(id);
-        view.showIt(response, service);
+        List vehicles = dbModel.getVehicles();
+        view.showIt(response, service, vehicles);
         
     }
 

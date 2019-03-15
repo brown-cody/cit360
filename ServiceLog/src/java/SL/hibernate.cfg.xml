@@ -49,7 +49,7 @@ Contributor(s):
     <property name="show_sql">false</property>
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
-    <mapping class="SL.Model.Vehicle" />
-    <mapping class="SL.Model.Service" />
+    <mapping class="SL.Vehicle" />
+    <mapping class="SL.Service" />
   </session-factory>
 </hibernate-configuration>

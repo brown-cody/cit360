@@ -31,14 +31,21 @@ public class ServiceLog extends HttpServlet {
         
         //Setup ACP HashMap for Service Actions
         controller.mapCommand("AddService", new AddServiceHandler());
+        controller.mapCommand("DoAddService", new DoAddServiceHandler());
         controller.mapCommand("BrowseService", new BrowseServiceHandler());
+        controller.mapCommand("ViewService", new ViewServiceHandler());
+        controller.mapCommand("EditService", new EditServiceHandler());
+        controller.mapCommand("DoEditService", new DoEditServiceHandler());
+        controller.mapCommand("DeleteService", new DeleteServiceHandler());
+        controller.mapCommand("DoDeleteService", new DoDeleteServiceHandler());
+        
         controller.mapCommand("SearchService", new SearchServiceHandler());
         
         controller.mapCommand("quit", new ExitHandler());
         
         //Setup Hibernate
         Configuration cfg = new Configuration();
-        cfg.configure("SL/Model/hibernate.cfg.xml");
+        cfg.configure("SL/hibernate.cfg.xml");
         factory = cfg.buildSessionFactory();
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
     }

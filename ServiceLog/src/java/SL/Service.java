@@ -1,5 +1,5 @@
 
-package SL.Model;
+package SL;
 
 
 import javax.persistence.*;
@@ -15,7 +15,7 @@ public class Service {
     private int id;
     
     @Column(name = "vehicle")
-    private String vehicle;
+    private int vehicle;
     
     @Column(name = "date")
     private String date;
@@ -43,11 +43,11 @@ public class Service {
         this.id = id;
     }
 
-    public String getVehicle() {
+    public int getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(String vehicle) {
+    public void setVehicle(int vehicle) {
         this.vehicle = vehicle;
     }
 

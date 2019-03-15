@@ -1,5 +1,5 @@
 
-package SL.Model;
+package SL;
 
 
 import javax.persistence.*;
