@@ -17,6 +17,7 @@ public class DoAddServiceHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String data) throws IOException {
         ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         BrowseServiceView view = new BrowseServiceView();
         JSONParser parser = new JSONParser();
         
@@ -37,7 +38,8 @@ public class DoAddServiceHandler implements Handler {
         
         sModel.addService(vehicle, date, mileage, vendor, category, notes, price);
         List services = sModel.getServices();
-        view.showIt(response, services);
+        List vehicles = vModel.getVehicles();
+        view.showIt(response, services, vehicles);
     }
 
 }

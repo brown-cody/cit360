@@ -27,23 +27,18 @@ public class EditServiceView {
         pw.println("<input type='hidden' id='id' name ='id' value='" + s.getId() + "'>"
                 + "<select id='vehicle' name='vehicle'>");
         
-                int i = 0;
-                for (Iterator iv = vehicles.iterator(); iv.hasNext();) {
-                    Vehicle v = (Vehicle) iv.next();
-                    i++;
-                    String selected = " ";
-                    if (v.getId() == s.getVehicle()) {
-                        selected = "selected='selected'";
-                    }
-                    pw.println("<option value='" + v.getId() + "'" + selected + "'>" + v.getYear() + " " + v.getMake() + " " + v.getModel() + "</option>");
-                }
+        int x = 0;
+        for (Iterator iv = vehicles.iterator(); iv.hasNext();) {
+            Vehicle v = (Vehicle) iv.next();
+            x++;
+            String selected = " ";
+            if (v.getId() == s.getVehicle()) {
+                selected = "selected='selected'";
+            }
+            pw.println("<option value='" + v.getId() + "'" + selected + "'>" + v.getYear() + " " + v.getMake() + " " + v.getModel() + "</option>");
+        }
 
-                if (i == 0) {
-                    pw.println("<option value='NOID'>No Vehicles</option>");
-                }
-
-                pw.println("</select>"
-                        
+        pw.println("</select>"
                 + "<input type='date' id='date' name='date' value='" + date + "'>"
                 + "<input type='text' id='mileage' name='mileage' value='" + s.getMileage() + "'>"
                 + "<input type='text' id='vendor' name='vendor' value='" + s.getVendor() + "'>"

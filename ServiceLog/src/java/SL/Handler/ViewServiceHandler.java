@@ -14,10 +14,12 @@ public class ViewServiceHandler implements Handler {
     public void handleIt(HttpServletResponse response, String id)  throws ServletException, IOException {
         
         ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         ViewServiceView view = new ViewServiceView();
         
+        List vehicles = vModel.getVehicles();
         List service = sModel.getServiceById(id);
-        view.showIt(response, service);
+        view.showIt(response, service, vehicles);
         
     }
 

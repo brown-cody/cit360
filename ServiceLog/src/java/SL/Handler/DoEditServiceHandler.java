@@ -19,6 +19,7 @@ public class DoEditServiceHandler implements Handler {
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
 
         ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         BrowseServiceView view = new BrowseServiceView();
         JSONParser parser = new JSONParser();
         
@@ -39,8 +40,9 @@ public class DoEditServiceHandler implements Handler {
         String price = (String) json.get("price");
         
         sModel.editService(id, vehicle, date, mileage, vendor, category, notes, price);
+        List vehicles = vModel.getVehicles();
         List services = sModel.getServices();
-        view.showIt(response, services);
+        view.showIt(response, services, vehicles);
         
     }
 

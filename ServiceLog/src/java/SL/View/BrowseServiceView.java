@@ -2,6 +2,7 @@
 package SL.View;
 
 import SL.Service;
+import SL.Vehicle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class BrowseServiceView {
-    public void showIt(HttpServletResponse response, List services) throws IOException {
+    public void showIt(HttpServletResponse response, List services, List vehicles) throws IOException {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
         
@@ -29,12 +30,26 @@ public class BrowseServiceView {
         
         int i = 0;
         for (Iterator iterator = services.iterator(); iterator.hasNext();) {
-            Service service = (Service) iterator.next();
+            Service s = (Service) iterator.next();
+            String date = s.getDate().split(" ")[0];
             i++;
             pw.println("<form method='post' action='ServiceLog'>");
             pw.println("<input type='hidden' name='action' value='ViewService'>");
-            pw.println("<button name='data' value='" + service.getId() + "'>");
-            pw.println(service.getDate() + " " + service.getVehicle() + " " + service.getMileage() + " " + service.getCategory());
+            pw.println("<button name='data' value='" + s.getId() + "'>");
+            pw.println(date + " ");
+                    
+            int x = 0;
+            for (Iterator iv = vehicles.iterator(); iv.hasNext();) {
+                Vehicle v = (Vehicle) iv.next();
+                x++;
+                String selected = " ";
+                if (v.getId() == s.getVehicle()) {
+                    pw.println(v.getModel());
+                }
+            }
+                    
+                    
+            pw.println(" " + s.getCategory());
             pw.println("</button>");
             pw.println("</form>");
         }

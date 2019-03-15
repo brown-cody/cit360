@@ -12,10 +12,12 @@ public class BrowseServiceHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String data) throws IOException {
         ServiceDAO sModel = new ServiceDAO();       
+        VehicleDAO vModel = new VehicleDAO();
         BrowseServiceView view = new BrowseServiceView();
 
         List services = sModel.getServices();
-        view.showIt(response, services);
+        List vehicles = vModel.getVehicles();
+        view.showIt(response, services, vehicles);
     
     }
 

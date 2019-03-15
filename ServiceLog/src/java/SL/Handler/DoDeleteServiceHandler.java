@@ -14,12 +14,14 @@ public class DoDeleteServiceHandler implements Handler {
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
 
         ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         BrowseServiceView view = new BrowseServiceView();
         
         sModel.deleteService(data);
         
         List services = sModel.getServices();
-        view.showIt(response, services);
+        List vehicles = vModel.getVehicles();
+        view.showIt(response, services, vehicles);
         
     }
 
