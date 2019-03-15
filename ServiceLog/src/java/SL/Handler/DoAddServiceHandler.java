@@ -1,9 +1,8 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.*;
 import SL.View.BrowseServiceView;
-import SL.View.EditVehiclesView;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,7 +16,7 @@ public class DoAddServiceHandler implements Handler {
     
     @Override
     public void handleIt(HttpServletResponse response, String data) throws IOException {
-        DBConnect dbModel = new DBConnect();
+        ServiceDAO sModel = new ServiceDAO();
         BrowseServiceView view = new BrowseServiceView();
         JSONParser parser = new JSONParser();
         
@@ -36,8 +35,8 @@ public class DoAddServiceHandler implements Handler {
         String notes = (String) json.get("notes");
         String price = (String) json.get("price");
         
-        dbModel.addService(vehicle, date, mileage, vendor, category, notes, price);
-        List services = dbModel.getServices();
+        sModel.addService(vehicle, date, mileage, vendor, category, notes, price);
+        List services = sModel.getServices();
         view.showIt(response, services);
     }
 

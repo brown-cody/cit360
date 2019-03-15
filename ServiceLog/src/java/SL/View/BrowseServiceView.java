@@ -2,7 +2,6 @@
 package SL.View;
 
 import SL.Service;
-import SL.Vehicle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;

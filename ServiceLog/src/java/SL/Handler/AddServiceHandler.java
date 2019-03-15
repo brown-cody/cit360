@@ -1,9 +1,8 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.VehicleDAO;
 import SL.View.AddServiceView;
-import SL.View.EditVehiclesView;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -15,9 +14,9 @@ public class AddServiceHandler implements Handler {
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
                 
         AddServiceView addView = new AddServiceView();
-        DBConnect dbModel = new DBConnect();
+        VehicleDAO vModel = new VehicleDAO();
         
-        List vehicles = dbModel.getVehicles();
+        List vehicles = vModel.getVehicles();
         addView.showIt(response, vehicles);
     }
 

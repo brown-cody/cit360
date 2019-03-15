@@ -22,8 +22,6 @@ public class AddVehicleHandler implements Handler {
         JSONParser parser = new JSONParser();
         try {
             JSONObject json = (JSONObject) parser.parse(makes);
-            //PrintWriter pw = response.getWriter();
-            //pw.println(makes);
         } catch (ParseException ex) {
             Logger.getLogger(AddVehicleHandler.class.getName()).log(Level.SEVERE, null, ex);
         }

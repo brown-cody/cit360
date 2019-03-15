@@ -1,7 +1,7 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.*;
 import SL.View.*;
 import java.io.IOException;
 import java.util.List;
@@ -13,10 +13,10 @@ public class ViewServiceHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String id)  throws ServletException, IOException {
         
-        DBConnect dbModel = new DBConnect();
+        ServiceDAO sModel = new ServiceDAO();
         ViewServiceView view = new ViewServiceView();
         
-        List service = dbModel.getServiceById(id);
+        List service = sModel.getServiceById(id);
         view.showIt(response, service);
         
     }

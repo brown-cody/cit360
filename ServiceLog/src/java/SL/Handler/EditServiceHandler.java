@@ -1,7 +1,7 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.*;
 import SL.View.*;
 import java.io.IOException;
 import java.util.List;
@@ -13,11 +13,12 @@ public class EditServiceHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String id)  throws ServletException, IOException {
         
-        DBConnect dbModel = new DBConnect();
+        ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         EditServiceView view = new EditServiceView();
         
-        List service = dbModel.getServiceById(id);
-        List vehicles = dbModel.getVehicles();
+        List service = sModel.getServiceById(id);
+        List vehicles = vModel.getVehicles();
         view.showIt(response, service, vehicles);
         
     }

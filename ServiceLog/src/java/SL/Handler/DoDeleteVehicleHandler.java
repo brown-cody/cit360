@@ -1,7 +1,7 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.VehicleDAO;
 import SL.View.*;
 import java.io.IOException;
 import java.util.List;
@@ -13,12 +13,12 @@ public class DoDeleteVehicleHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
 
-        DBConnect dbModel = new DBConnect();
+        VehicleDAO vModel = new VehicleDAO();
         EditVehiclesView view = new EditVehiclesView();
         
-        dbModel.deleteVehicle(data);
+        vModel.deleteVehicle(data);
         
-        List vehicles = dbModel.getVehicles();
+        List vehicles = vModel.getVehicles();
         view.showIt(response, vehicles);
         
     }

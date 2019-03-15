@@ -1,7 +1,7 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.*;
 import SL.View.*;
 import java.io.IOException;
 import java.util.List;
@@ -12,10 +12,10 @@ public class DeleteServiceHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String data) throws IOException {
         
-        DBConnect dbModel = new DBConnect();
+        ServiceDAO sModel = new ServiceDAO();
         DeleteServiceView view = new DeleteServiceView();
         
-        List service = dbModel.getServiceById(data);
+        List service = sModel.getServiceById(data);
         view.showIt(response, service);
         
     }

@@ -1,7 +1,7 @@
 
 package SL.Handler;
 
-import SL.Model.DBConnect;
+import SL.Model.VehicleDAO;
 import SL.View.EditVehiclesView;
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +17,7 @@ public class DoAddVehicleHandler implements Handler {
     
     @Override
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
-        DBConnect dbModel = new DBConnect();
+        VehicleDAO vModel = new VehicleDAO();
         EditVehiclesView view = new EditVehiclesView();
         JSONParser parser = new JSONParser();
         
@@ -36,8 +36,8 @@ public class DoAddVehicleHandler implements Handler {
         String vin = (String) json.get("vin");
         String regdate = (String) json.get("regdate");
         
-        dbModel.addVehicle(year, make, model, color, license, vin, regdate);
-        List vehicles = dbModel.getVehicles();
+        vModel.addVehicle(year, make, model, color, license, vin, regdate);
+        List vehicles = vModel.getVehicles();
         view.showIt(response, vehicles);
         
     }
