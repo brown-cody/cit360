@@ -6,11 +6,22 @@
         <title>Service Log</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='/ServiceLog/normalize.css'>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>Service Log</h1>
-
+        
+        <form method="post" action="ServiceLog">
+            <input type="hidden" name="action" value="AddService">
+            <button type="submit">Add Service</button>
+        </form>
+        
+        <form method="post" action="ServiceLog">
+            <input type="hidden" name="action" value="BrowseService">
+            <button type="submit">View Service Records</button>
+        </form>
+        
         <form method="post" action="ServiceLog">
             <input type="hidden" name="action" value="EditVehicles">
             <button type="submit">Edit Vehicles</button>

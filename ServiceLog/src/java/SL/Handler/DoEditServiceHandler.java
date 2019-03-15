@@ -16,7 +16,7 @@ import org.json.simple.parser.ParseException;
 public class DoEditServiceHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
+    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException, ParseException {
 
         ServiceDAO sModel = new ServiceDAO();
         VehicleDAO vModel = new VehicleDAO();
@@ -24,11 +24,7 @@ public class DoEditServiceHandler implements Handler {
         JSONParser parser = new JSONParser();
         
         JSONObject json = new JSONObject();
-        try {
-            json = (JSONObject) parser.parse(data);
-        } catch (ParseException ex) {
-            Logger.getLogger(DoEditServiceHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        json = (JSONObject) parser.parse(data);
         
         String id = (String) json.get("id");
         String vehicle = (String) json.get("vehicle");

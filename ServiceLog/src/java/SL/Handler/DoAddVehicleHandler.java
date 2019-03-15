@@ -16,17 +16,13 @@ import org.json.simple.parser.ParseException;
 public class DoAddVehicleHandler implements Handler {
     
     @Override
-    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException {
+    public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException, ParseException {
         VehicleDAO vModel = new VehicleDAO();
         EditVehiclesView view = new EditVehiclesView();
         JSONParser parser = new JSONParser();
         
         JSONObject json = new JSONObject();
-        try {
-            json = (JSONObject) parser.parse(data);
-        } catch (ParseException ex) {
-            Logger.getLogger(DoAddVehicleHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        json = (JSONObject) parser.parse(data);
         
         String year = (String) json.get("year");
         String make = (String) json.get("make");
