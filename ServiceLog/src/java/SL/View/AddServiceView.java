@@ -4,6 +4,8 @@ package SL.View;
 import SL.Vehicle;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,10 @@ public class AddServiceView {
     public void showIt(HttpServletResponse response, List vehicles) throws IOException {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
+        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	LocalDate localDate = LocalDate.now();
+	String date = dtf.format(localDate);
         
         pw.println(hl.header("Add Service"));
         pw.println(hl.createServiceJSON("DoAddService"));
@@ -33,7 +39,7 @@ public class AddServiceView {
         }
         
         pw.println("</select>"
-                + "<input type='date' id='date' name='date'>"
+                + "<input type='date' id='date' name='date' value='"+ date +"'>"
                 + "<input type='text' id='mileage' name='mileage' placeholder='Mileage'>"
                 + "<input type='text' id='vendor' name='vendor' placeholder='Vendor'>"
                 + "<input type='text' id='category' name='category' placeholder='Category'>"

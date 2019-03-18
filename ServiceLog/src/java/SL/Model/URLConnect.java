@@ -10,10 +10,10 @@ import java.net.URL;
 
 
 public class URLConnect {
-    public String getVehicleInfo() throws MalformedURLException, IOException {
+    public String getVehicleInfo(String type) throws MalformedURLException, IOException {
 
         //URL url = new URL("https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json");
-        URL url = new URL("http://xrkund.duckdns.org:8080/api/allmakes.json");
+        URL url = new URL("http://xrkund.duckdns.org:8080/api/all" + type + ".json");
         
         HttpURLConnection huc;
         try {
@@ -39,7 +39,4 @@ public class URLConnect {
         return wholePage;
     }
     
-    public void getModels() {
-        
-    }
 }

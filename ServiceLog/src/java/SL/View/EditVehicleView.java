@@ -7,15 +7,18 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONArray;
 
 
 public class EditVehicleView {
-    public void showIt(HttpServletResponse response, List vehicle) throws IOException {
+    public void showIt(HttpServletResponse response, List vehicle, JSONArray jsonArrMake, JSONArray jsonArrModel, JSONArray jsonArrColor) throws IOException {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
         
         Iterator iterator = vehicle.iterator();
         Vehicle v = (Vehicle) iterator.next();
+        
+        String date = v.getRegdate().split(" ")[0];
         
         pw.println(hl.header("Edit Vehicle"));
         pw.println(hl.createVehicleJSON("DoEditVehicle"));
@@ -28,7 +31,7 @@ public class EditVehicleView {
                 + "<input type='text' id='color' name='color' value='" + v.getColor() + "'>"
                 + "<input type='text' id='license' name='license' value='" + v.getLicense() + "'>"
                 + "<input type='text' id='vin' name='vin' value='" + v.getVin() + "'>"
-                + "<input type='text' id='regdate' name='regdate' value='" + v.getRegdate() + "'>"
+                + "<input type='date' id='regdate' name='regdate' value='" + date + "'>"
                 + "<button onclick='submit()'>Submit</button>");
         
         pw.println("<form method='post' action='ServiceLog'>"

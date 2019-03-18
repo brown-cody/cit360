@@ -2,8 +2,8 @@
 package SL.Handler;
 
 import SL.Model.URLConnect;
+import SL.View.AddVehicleView;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
@@ -16,22 +16,21 @@ public class AddVehicleHandler implements Handler {
     @Override
     public void handleIt(HttpServletResponse response, String data)  throws ServletException, IOException, ParseException {
         URLConnect urlModel = new URLConnect();
-        String makes = urlModel.getVehicleInfo();
-        PrintWriter pw = response.getWriter();
+        String makes = urlModel.getVehicleInfo("makes");
+        String models = urlModel.getVehicleInfo("models");
+        String colors = urlModel.getVehicleInfo("colors");
         
         JSONParser parser = new JSONParser();
-        JSONObject jsonObj = (JSONObject) parser.parse(makes);
+        JSONObject jsonObjMake = (JSONObject) parser.parse(makes);
+        JSONObject jsonObjModel = (JSONObject) parser.parse(models);
+        JSONObject jsonObjColor = (JSONObject) parser.parse(colors);
         
-        JSONArray jsonArr = (JSONArray) parser.parse(jsonObj.get("make").toString());
+        JSONArray jsonArrMake = (JSONArray) parser.parse(jsonObjMake.get("make").toString());
+        JSONArray jsonArrModel = (JSONArray) parser.parse(jsonObjModel.get("model").toString());
+        JSONArray jsonArrColor = (JSONArray) parser.parse(jsonObjColor.get("color").toString());
         
-        for (Object JSONmakes : jsonArr) {
-            JSONObject JSONmake = (JSONObject) JSONmakes;
-            pw.println(JSONmake.get("id"));
-            pw.println(JSONmake.get("name"));
-        }
-        
-        //AddVehicleView addView = new AddVehicleView();
-        //addView.showIt(response);
+        AddVehicleView addView = new AddVehicleView();
+        addView.showIt(response, jsonArrMake, jsonArrModel, jsonArrColor);
     }
 
 }
