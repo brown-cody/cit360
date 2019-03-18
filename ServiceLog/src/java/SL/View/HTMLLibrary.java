@@ -85,4 +85,28 @@ public class HTMLLibrary {
         + "}"
         + "</script>";
     }
+    
+    public String hideAndFilterModels = "<script>"
+                + ""
+                + "function hideModel() {"
+                + "var modelClass = 'mod';"
+                + "var htmlArray = document.getElementsByClassName(modelClass);"
+                + "for(i = 0; i < htmlArray.length; i++) {"
+                + "htmlArray[i].style.display = 'none';"
+                + "}"
+                + "filterModel();"
+                + "}"
+                + ""
+                + "function filterModel() {"
+                + "var selectedMakeId = document.getElementById('make').value;"
+                + "console.log(selectedMakeId);"
+            
+                + "var modelClass = 'mod ' + selectedMakeId;"
+                + "var htmlArray = document.getElementsByClassName(modelClass);"
+            
+                + "for(i = 0; i < htmlArray.length; i++) {"
+                + "htmlArray[i].style.removeProperty('display');"
+                + "}"
+                + "}"
+                + "</script>";
 }

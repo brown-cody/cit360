@@ -21,31 +21,7 @@ public class AddVehicleView {
         
         pw.println(hl.header("Add Vehicle"));
         pw.println(hl.createVehicleJSON("DoAddVehicle"));
-        
-        
-        pw.println("<script>"
-                + ""
-                + "function hideModel() {"
-                + "var modelClass = 'mod';"
-                + "var htmlArray = document.getElementsByClassName(modelClass);"
-                + "for(i = 0; i < htmlArray.length; i++) {"
-                + "htmlArray[i].style.display = 'none';"
-                + "}"
-                + "filterModel();"
-                + "}"
-                + ""
-                + "function filterModel() {"
-                + "var selectedMakeId = document.getElementById('make').value;"
-                + "console.log(selectedMakeId);"
-            
-                + "var modelClass = 'mod ' + selectedMakeId;"
-                + "var htmlArray = document.getElementsByClassName(modelClass);"
-            
-                + "for(i = 0; i < htmlArray.length; i++) {"
-                + "htmlArray[i].style.removeProperty('display');"
-                + "}"
-                + "}"
-                + "</script>");
+        pw.println(hl.hideAndFilterModels);
         
         
         pw.println("<h1>Add Vehicle</h1>");
@@ -77,7 +53,8 @@ public class AddVehicleView {
                     pw.println("<option value='" + JSONcolor.get("name") + "'>" + JSONcolor.get("name") + "</option>");
                 }
                         
-        pw.println("<input type='text' id='license' name='license' placeholder='License Plate'>"
+        pw.println("</select>"
+                + "<input type='text' id='license' name='license' placeholder='License Plate'>"
                 + "<input type='text' id='vin' name='vin' placeholder='VIN'>"
                 + "<input type='date' id='regdate' name='regdate' value='" + date + "'>"
                 + "<button onclick='submit()'>Submit</button>");
