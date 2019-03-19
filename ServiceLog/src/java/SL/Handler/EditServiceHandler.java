@@ -15,11 +15,13 @@ public class EditServiceHandler implements Handler {
         
         ServiceDAO sModel = new ServiceDAO();
         VehicleDAO vModel = new VehicleDAO();
+        CategoryDAO cModel = new CategoryDAO();
         EditServiceView view = new EditServiceView();
         
         List service = sModel.getServiceById(id);
         List vehicles = vModel.getVehicles();
-        view.showIt(response, service, vehicles);
+        List categories = cModel.getCategories();
+        view.showIt(response, service, vehicles, categories);
         
     }
 

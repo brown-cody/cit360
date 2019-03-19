@@ -1,6 +1,7 @@
 
 package SL.View;
 
+import SL.Category;
 import SL.Service;
 import SL.Vehicle;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class EditServiceView {
-    public void showIt(HttpServletResponse response, List service, List vehicles) throws IOException {
+    public void showIt(HttpServletResponse response, List service, List vehicles, List categories) throws IOException {
         PrintWriter pw = response.getWriter();
         HTMLLibrary hl = new HTMLLibrary();
         
@@ -41,9 +42,25 @@ public class EditServiceView {
         pw.println("</select>"
                 + "<input type='date' id='date' name='date' value='" + date + "'>"
                 + "<input type='text' id='mileage' name='mileage' value='" + s.getMileage() + "'>"
-                + "<input type='text' id='vendor' name='vendor' value='" + s.getVendor() + "'>"
-                + "<input type='text' id='category' name='category' value='" + s.getCategory() + "'>"
-                + "<textarea id='notes' name='notes' rows='5' cols='25' placeholder='Notes'>" + s.getNotes() + "</textarea>"
+                + "<input type='text' id='vendor' name='vendor' value='" + s.getVendor() + "'>");
+        
+        pw.println("<select name='category' id='category'>");
+        int i = 0;
+        for (Iterator ci = categories.iterator(); ci.hasNext();) {
+            Category c = (Category) ci.next();
+            i++;
+            String selectOption = "";
+            if (c.getName().equals(s.getCategory())) {
+                selectOption = "selected";
+            }
+            pw.println("<option value='" + c.getName() + "' " + selectOption + ">" + c.getName() + "</option>");
+        }
+
+        pw.println("</select>");
+        
+                //+ "<input type='text' id='category' name='category' value='" + s.getCategory() + "'>"
+                
+        pw.println("<textarea id='notes' name='notes' rows='5' cols='25' placeholder='Notes'>" + s.getNotes() + "</textarea>"
                 + "<input type='text' id='price' name='price' value='" + s.getPrice() + "'>"
                 + "<button onclick='submit()'>Submit</button>");
         

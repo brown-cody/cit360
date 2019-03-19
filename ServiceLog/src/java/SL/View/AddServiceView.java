@@ -40,7 +40,7 @@ public class AddServiceView {
                 + "<input type='date' id='date' name='date' value='"+ date +"'>"
                 + "<input type='text' id='mileage' name='mileage' placeholder='Mileage'>"
                 + "<input type='text' id='vendor' name='vendor' placeholder='Vendor'>");
-                //+ "<input type='text' id='category' name='category' placeholder='Category'>"
+        
         pw.println("<select name='category' id='category'>"
                 + "<option value='' disabled selected>Category</option>");
         i = 0;
