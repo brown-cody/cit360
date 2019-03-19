@@ -44,12 +44,13 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cit360</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password"/>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="show_sql">false</property>
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
-    <mapping class="SL.Vehicle" />
-    <mapping class="SL.Service" />
+    <mapping class="SL.Vehicle"/>
+    <mapping class="SL.Service"/>
+    <mapping class="SL.Category"/>
   </session-factory>
 </hibernate-configuration>

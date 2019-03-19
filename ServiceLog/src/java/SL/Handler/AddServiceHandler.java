@@ -1,6 +1,7 @@
 
 package SL.Handler;
 
+import SL.Model.CategoryDAO;
 import SL.Model.VehicleDAO;
 import SL.View.AddServiceView;
 import java.io.IOException;
@@ -15,9 +16,12 @@ public class AddServiceHandler implements Handler {
                 
         AddServiceView addView = new AddServiceView();
         VehicleDAO vModel = new VehicleDAO();
+        CategoryDAO cModel = new CategoryDAO();
         
         List vehicles = vModel.getVehicles();
-        addView.showIt(response, vehicles);
+        List categories = cModel.getCategories();
+        
+        addView.showIt(response, vehicles, categories);
     }
 
 }

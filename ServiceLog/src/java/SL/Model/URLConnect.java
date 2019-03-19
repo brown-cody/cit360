@@ -12,13 +12,11 @@ import java.net.URL;
 public class URLConnect {
     public String getVehicleInfo(String type) throws MalformedURLException, IOException {
 
-        //URL url = new URL("https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json");
         URL url = new URL("http://xrkund.duckdns.org:8080/api/all" + type + ".json");
         
         HttpURLConnection huc;
         try {
             huc = (HttpURLConnection) url.openConnection();
-            //int response = huc.getResponseCode();
         } catch(IOException e) {
             System.out.println("#####     ERROR 404: Page Not Found    #####");
 
