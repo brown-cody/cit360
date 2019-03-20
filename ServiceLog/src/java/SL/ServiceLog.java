@@ -14,7 +14,7 @@ import org.hibernate.cfg.Configuration;
 @WebServlet("/ServiceLog")
 public class ServiceLog extends HttpServlet {
 
-    String action;
+    //String action;
     ApplicationController controller = new ApplicationController();
     public static SessionFactory factory;
     
@@ -58,7 +58,7 @@ public class ServiceLog extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
 		
-        action = request.getParameter("action");
+        String action = request.getParameter("action");
         String data = request.getParameter("data");
         
         controller.handleRequest(action, response, data);
