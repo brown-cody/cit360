@@ -13,10 +13,12 @@ public class DeleteServiceHandler implements Handler {
     public void handleIt(HttpServletResponse response, String data) throws IOException {
         
         ServiceDAO sModel = new ServiceDAO();
+        VehicleDAO vModel = new VehicleDAO();
         DeleteServiceView view = new DeleteServiceView();
         
         List service = sModel.getServiceById(data);
-        view.showIt(response, service);
+        List vehicles = vModel.getVehicles();
+        view.showIt(response, service, vehicles);
         
     }
 

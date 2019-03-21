@@ -47,16 +47,16 @@ public class AddServiceView {
         for (Iterator ci = categories.iterator(); ci.hasNext();) {
             Category c = (Category) ci.next();
             i++;
-            pw.println("<option value='" + c.getId() + "'>" + c.getName() + "</option>");
+            pw.println("<option value='" + c.getName() + "'>" + c.getName() + "</option>");
         }
 
         pw.println("</select>");
         pw.println("<textarea id='notes' name='notes' rows='5' cols='25' placeholder='Notes'></textarea>"
-                + "<input type='text' id='price' name='price' placeholder='price'>"
-                + "<button onclick='submit()'>Submit</button>");
+                + "<input type='text' id='price' name='price' placeholder='Price'>"
+                + "<button onclick='submit()'>SUBMIT</button>");
         
         pw.println("<form method='post' action='/ServiceLog'>"
-                + "<button type='submit'>Cancel</button>"
+                + "<button type='submit'>CANCEL</button>"
                 + "</form>");
         
         pw.println(hl.footer);

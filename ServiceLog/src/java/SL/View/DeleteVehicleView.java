@@ -20,17 +20,23 @@ public class DeleteVehicleView {
         pw.println(hl.header("Delete Vehicle"));
         
         pw.println("<h1>Delete Vehicle</h1>");
-        pw.println("Are you sure you want to delete this vehicle?");
-        pw.println(v.getYear() + " " + v.getMake() + " " + v.getModel() + " - " + v.getColor());
+        //pw.println("Are you sure you want to delete this vehicle?");
+        //pw.println(v.getYear() + " " + v.getMake() + " " + v.getModel() + " - " + v.getColor());
                 
+        pw.println("<p class='vehicleTitle'>Are you sure you want to delete this vehicle?</div>");
+        pw.println("<p class='vehicleInfo'><span class='heavy'>Year: </span>" + v.getYear() + "</p>"
+                + "<p class='vehicleInfo'><span class='heavy'>Make: </span>" + v.getMake() + "</p>"
+                + "<p class='vehicleInfo'><span class='heavy'>Model: </span>" + v.getModel() + "</p>"
+                + "<p class='vehicleInfo bottomInfo'><span class='heavy'>Color: </span>" + v.getColor() + "</p>");
+        
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='EditVehicles'>"
-                + "<button type='submit'>No, Go Back</button>"
+                + "<button type='submit'>NO, GO BACK</button>"
                 + "</form>");
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='DoDeleteVehicle'>"
                 + "<input type='hidden' name='data' value='" + v.getId() + "'>"
-                + "<button type='submit'>Yes, Delete</button>"
+                + "<button type='submit'>YES, DELETE</button>"
                 + "</form>");
         
         pw.println(hl.footer);

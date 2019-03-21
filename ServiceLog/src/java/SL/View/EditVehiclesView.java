@@ -19,12 +19,12 @@ public class EditVehiclesView {
         pw.println("<h1>Edit Vehicles</h1>");
         
         pw.println("<form method='post' action='/ServiceLog'>"
-                + "<button type='submit'>Home</button>"
+                + "<button type='submit'>HOME</button>"
                 + "</form>");
                 
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='AddVehicle'>"
-                + "<button type='submit'>Add Vehicle</button>"
+                + "<button type='submit'>ADD VEHICLE</button>"
                 + "</form>");
         int i = 0;
         for (Iterator iterator = vehicles.iterator(); iterator.hasNext();) {
@@ -33,7 +33,7 @@ public class EditVehiclesView {
             pw.println("<form method='post' action='ServiceLog'>");
             pw.println("<input type='hidden' name='action' value='EditVehicle'>");
             pw.println("<button name='data' value='" + vehicle.getId() + "'>");
-            pw.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " - " + vehicle.getColor());
+            pw.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + "<br>" + vehicle.getColor());
             pw.println("</button>");
             pw.println("</form>");
         }

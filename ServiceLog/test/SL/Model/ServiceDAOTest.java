@@ -5,7 +5,12 @@
  */
 package SL.Model;
 
+import SL.ApplicationController;
+import static SL.ServiceLog.factory;
 import java.util.List;
+import java.util.logging.Level;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,12 +23,19 @@ import static org.junit.Assert.*;
  * @author pq0192
  */
 public class ServiceDAOTest {
-    
+        public static ApplicationController controller = new ApplicationController();
+        public static SessionFactory factory;
     public ServiceDAOTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+
+        //Setup Hibernate
+        Configuration cfg = new Configuration();
+        cfg.configure("SL/hibernate.cfg.xml");
+        factory = cfg.buildSessionFactory();
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
     }
     
     @AfterClass
@@ -44,17 +56,15 @@ public class ServiceDAOTest {
     @Test
     public void testAddService() {
         System.out.println("addService");
-        String vehicle = "";
-        String date = "";
-        String mileage = "";
-        String vendor = "";
-        String category = "";
-        String notes = "";
-        String price = "";
+        String vehicle = "1";
+        String date = "2020-01-01";
+        String mileage = "999999";
+        String vendor = "O-O-O-Reilly";
+        String category = "Insurance";
+        String notes = "These are the notes.";
+        String price = "999.99";
         ServiceDAO instance = new ServiceDAO();
         instance.addService(vehicle, date, mileage, vendor, category, notes, price);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

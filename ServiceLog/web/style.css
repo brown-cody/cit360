@@ -1,3 +1,72 @@
 body {
     background:green;
 }
+
+h1 {
+    font-family: 'Josefin Sans', 'Arial', sans-serif;
+    width: 6em;
+    margin: 1em auto;
+    text-align: center;
+}
+
+button {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    background: lightgreen;
+    border: 3px black solid;
+    display: block;
+    margin: .25em auto;
+    padding: .5em .5em;
+    width: 13.9em;
+}
+
+button:active {
+    background:darkgreen;
+    color: white;
+}
+
+button:hover {
+    background: white;
+}
+
+form {
+    width: 13.9em;
+    margin:auto;
+}
+
+input, select, textarea {
+    display:block;
+    margin:.5em auto;
+    width: 13em;
+    border: 3px lightgreen solid;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    padding: .25em;
+}
+
+select {
+    width: 13.9em;
+}
+
+.serviceTitle, .vehicleTitle {
+    font-weight:bold;
+    font-family: 'Arial', sans-serif;
+    font-size:1.5em;
+    width: 13.9em;
+    margin:0em auto 1em;
+    text-align:center;
+}
+
+.heavy {
+    font-weight:bold;
+}
+
+.serviceInfo, .vehicleInfo {
+    font-family: 'Arial', sans-serif;
+    width: 13.9em;
+    margin:auto;
+}
+
+.bottomInfo {
+    margin-bottom: 1em;
+}

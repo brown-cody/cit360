@@ -31,30 +31,28 @@ public class ViewServiceView {
             }
             
         }
-        if (i == 0) {
-            pw.println("<option value='NOID'>No Vehicle</option>");
-        }
+        
         
         pw.println(hl.header("View Service"));
         
         pw.println("<h1>View Service Record</h1>");
-        pw.println("<p>" + curVehicle + "</p>"
-                + "<p>" + date + "</p>"
-                + "<p>" + s.getMileage() + "</p>"
-                + "<p>" + s.getVendor() + "</p>"
-                + "<p>" + s.getCategory() + "</p>"
-                + "<p>" + s.getNotes() + "</p>"
-                + "<p>" + s.getPrice() + "</p>");
+        pw.println("<p class='serviceInfo'>" + curVehicle + "</p>"
+                + "<p class='serviceInfo'><span class='heavy'>Service Date: </span>" + date + "</p>"
+                + "<p class='serviceInfo'><span class='heavy'>Mileage: </span>" + s.getMileage() + "</p>"
+                + "<p class='serviceInfo'><span class='heavy'>Vendor: </span>" + s.getVendor() + "</p>"
+                + "<p class='serviceInfo'><span class='heavy'>Category: </span>" + s.getCategory() + "</p>"
+                + "<p class='serviceInfo'><span class='heavy'>Notes: </span>" + s.getNotes() + "</p>"
+                + "<p class='serviceInfo bottomInfo'><span class='heavy'>Cost: </span>$" + s.getPrice() + "</p>");
         
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='EditService'>"
                 + "<input type='hidden' name='data' value='" + s.getId() + "'>"
-                + "<button type='submit'>Edit</button>"
+                + "<button type='submit'>EDIT</button>"
                 + "</form>");
         
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='BrowseService'>"
-                + "<button type='submit'>Cancel</button>"
+                + "<button type='submit'>CANCEL</button>"
                 + "</form>");
         
         pw.println(hl.footer);

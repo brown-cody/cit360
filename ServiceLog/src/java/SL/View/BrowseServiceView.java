@@ -20,12 +20,12 @@ public class BrowseServiceView {
         pw.println("<h1>Browse Services</h1>");
         
         pw.println("<form method='post' action='/ServiceLog'>"
-                + "<button type='submit'>Home</button>"
+                + "<button type='submit'>HOME</button>"
                 + "</form>");
                 
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='AddService'>"
-                + "<button type='submit'>Add Service</button>"
+                + "<button type='submit'>ADD SERVICE</button>"
                 + "</form>");
         
         int i = 0;
@@ -36,7 +36,7 @@ public class BrowseServiceView {
             pw.println("<form method='post' action='ServiceLog'>");
             pw.println("<input type='hidden' name='action' value='ViewService'>");
             pw.println("<button name='data' value='" + s.getId() + "'>");
-            pw.println(date + " ");
+            pw.println(date + "<br>");
                     
             int x = 0;
             for (Iterator iv = vehicles.iterator(); iv.hasNext();) {
@@ -48,7 +48,7 @@ public class BrowseServiceView {
                 }
             }
                     
-                    
+            pw.println("<br>");        
             pw.println(" " + s.getCategory());
             pw.println("</button>");
             pw.println("</form>");

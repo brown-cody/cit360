@@ -57,11 +57,11 @@ public class AddVehicleView {
                 + "<input type='text' id='license' name='license' placeholder='License Plate'>"
                 + "<input type='text' id='vin' name='vin' placeholder='VIN'>"
                 + "<input type='date' id='regdate' name='regdate' value='" + date + "'>"
-                + "<button onclick='submit()'>Submit</button>");
+                + "<button onclick='submit()'>SUBMIT</button>");
         
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='EditVehicles'>"
-                + "<button type='submit'>Cancel</button>"
+                + "<button type='submit'>CANCEL</button>"
                 + "</form>");
         
         pw.println(hl.footer);

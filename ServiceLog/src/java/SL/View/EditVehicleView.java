@@ -79,16 +79,16 @@ public class EditVehicleView {
         pw.println("<input type='text' id='license' name='license' value='" + v.getLicense() + "'>"
                 + "<input type='text' id='vin' name='vin' value='" + v.getVin() + "'>"
                 + "<input type='date' id='regdate' name='regdate' value='" + date + "'>"
-                + "<button onclick='submit()'>Submit</button>");
+                + "<button onclick='submit()'>SUBMIT</button>");
         
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='EditVehicles'>"
-                + "<button type='submit'>Cancel</button>"
+                + "<button type='submit'>CANCEL</button>"
                 + "</form>");
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='DeleteVehicle'>"
                 + "<input type='hidden' name='data' value='" + v.getId() + "'>"
-                + "<button type='submit'>Delete</button>"
+                + "<button type='submit'>DELETE</button>"
                 + "</form>");
         pw.println("<script>hideModel()</script>");
         pw.println(hl.footer);

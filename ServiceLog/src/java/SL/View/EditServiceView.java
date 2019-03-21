@@ -62,16 +62,16 @@ public class EditServiceView {
                 
         pw.println("<textarea id='notes' name='notes' rows='5' cols='25' placeholder='Notes'>" + s.getNotes() + "</textarea>"
                 + "<input type='text' id='price' name='price' value='" + s.getPrice() + "'>"
-                + "<button onclick='submit()'>Submit</button>");
+                + "<button onclick='submit()'>SUBMIT</button>");
         
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='BrowseService'>"
-                + "<button type='submit'>Cancel</button>"
+                + "<button type='submit'>CANCEL</button>"
                 + "</form>");
         pw.println("<form method='post' action='ServiceLog'>"
                 + "<input type='hidden' name='action' value='DeleteService'>"
                 + "<input type='hidden' name='data' value='" + s.getId() + "'>"
-                + "<button type='submit'>Delete</button>"
+                + "<button type='submit'>DELETE</button>"
                 + "</form>");
         
         pw.println(hl.footer);
