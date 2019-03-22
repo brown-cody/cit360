@@ -36,7 +36,7 @@ public class ViewServiceView {
         pw.println(hl.header("View Service"));
         
         pw.println("<h1>View Service Record</h1>");
-        pw.println("<p class='serviceInfo'>" + curVehicle + "</p>"
+        pw.println("<p class='serviceTitle'>" + curVehicle + "</p>"
                 + "<p class='serviceInfo'><span class='heavy'>Service Date: </span>" + date + "</p>"
                 + "<p class='serviceInfo'><span class='heavy'>Mileage: </span>" + s.getMileage() + "</p>"
                 + "<p class='serviceInfo'><span class='heavy'>Vendor: </span>" + s.getVendor() + "</p>"
