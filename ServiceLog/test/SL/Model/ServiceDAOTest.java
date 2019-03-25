@@ -6,6 +6,7 @@
 package SL.Model;
 
 import SL.ApplicationController;
+import SL.ServiceLog;
 import static SL.ServiceLog.factory;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,19 +24,19 @@ import static org.junit.Assert.*;
  * @author pq0192
  */
 public class ServiceDAOTest {
-        public static ApplicationController controller = new ApplicationController();
-        public static SessionFactory factory;
+
     public ServiceDAOTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
-
+        /*ApplicationController controller = new ApplicationController();
+        SessionFactory factory;
         //Setup Hibernate
         Configuration cfg = new Configuration();
         cfg.configure("SL/hibernate.cfg.xml");
         factory = cfg.buildSessionFactory();
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);*/
     }
     
     @AfterClass
@@ -55,6 +56,8 @@ public class ServiceDAOTest {
      */
     @Test
     public void testAddService() {
+        ServiceLog sl = new ServiceLog();
+        
         System.out.println("addService");
         String vehicle = "1";
         String date = "2020-01-01";
