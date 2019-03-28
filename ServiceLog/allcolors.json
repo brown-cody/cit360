@@ -1,0 +1,84 @@
+{
+"color":[
+  {
+    "id": 0,
+    "name": "Black"
+  },
+  {
+    "id": 1,
+    "name": "Blue"
+  },
+  {
+    "id": 2,
+    "name": "Burgundy"
+  },
+  {
+    "id": 3,
+    "name": "Champagne"
+  },
+  {
+    "id": 4,
+    "name": "Dark Blue"
+  },
+  {
+    "id": 5,
+    "name": "Dark Gray"
+  },
+  {
+    "id": 6,
+    "name": "Dark Green"
+  },
+  {
+    "id": 7,
+    "name": "Gold"
+  },
+  {
+    "id": 8,
+    "name": "Gray"
+  },
+  {
+    "id": 9,
+    "name": "Green"
+  },
+  {
+    "id": 10,
+    "name": "Light Blue"
+  },
+  {
+    "id": 11,
+    "name": "Light Gray"
+  },
+  {
+    "id": 12,
+    "name": "Light Green"
+  },
+  {
+    "id": 13,
+    "name": "Pearl"
+  },
+  {
+    "id": 14,
+    "name": "Pink"
+  },
+  {
+    "id": 15,
+    "name": "Purple"
+  },
+  {
+    "id": 16,
+    "name": "Red"
+  },
+  {
+    "id": 17,
+    "name": "Silver"
+  },
+  {
+    "id": 18,
+    "name": "White"
+  },
+  {
+    "id": 19,
+    "name": "Yellow"
+  }
+]
+}
